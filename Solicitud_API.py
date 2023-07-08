@@ -1,6 +1,6 @@
 import requests
 
-#get
+# get
 # url = ("https://jsonplaceholder.typicode.com/users")
 
 # r = requests.get(url, timeout=10)
@@ -9,7 +9,7 @@ import requests
 
 # for user in r:
 #     print(user["name"])
-
+# #O
 # url = ("https://jsonplaceholder.typicode.com/users/1")
 # r = requests.get(url, timeout=10)
 # print(r.json())
@@ -24,8 +24,8 @@ import requests
 # r = requests.post(url, timeout=10, data=user)
 # print(r)
 
-#put y patch 
-#se necesita indicar dentro de la url lo que se va a actualizar
+# #put y patch 
+# #se necesita indicar dentro de la url lo que se va a actualizar
 
 # url = ("https://jsonplaceholder.typicode.com/users/11")
 # user = {
@@ -34,11 +34,21 @@ import requests
 # r = requests.put(url, timeout=10, data=user)
 # print(r)
 
-#delete
+# #delete
 
+# url = ("https://jsonplaceholder.typicode.com/users/11")
+# user = {
+#     "name":"el perro marihuano"
+# }
+# r = requests.delete(url, timeout=10, data=user)
+# print(r)
+
+# #Cabeceras (para apis protegidas)
+# #Se realiza con get, put, patch, post y delete
 url = ("https://jsonplaceholder.typicode.com/users/11")
-user = {
-    "name":"el perro marihuano"
+apikey = "1234456jfvmmhfn"
+headers = {
+    "Authorization": f"bearer {apikey}"
 }
-r = requests.delete(url, timeout=10, data=user)
+r = requests.delete(url, timeout=10, headers=headers)
 print(r)
